@@ -24,7 +24,7 @@ namespace _03_view_to_controller.Controllers
     }
 }
 
-/*
+/* ÖDEV
  Ýstenenler (View Tarafý): Bir Index view'ý içerisinde (Ýster HTML Helper, ister standart HTML etiketi kullanarak) þu 3 bilgiyi alan bir form oluþturun:
         Öðrenci Adý Soyadý: (Metin kutusu)
         Ýlgilendiði Alan: (Açýlýr Liste / Dropdown - Seçenekler: Web Geliþtirme, Oyun Geliþtirme, Yapay Zeka)
