@@ -1,0 +1,35 @@
+﻿<h2>Index</h2>
+<p>@ViewBag.name</p>
+@{
+    SelectListItem[] liste = new SelectListItem[2]
+    {
+        new SelectListItem { Text = "Seçenek 1"},
+        new SelectListItem { Text = "Seçenek 2"},
+    };
+}
+<h3>1.Form</h3>
+@using (Html.BeginForm("Index", "Home"))
+{
+    @Html.TextBox("ad")
+    <br />
+    @Html.DropDownList("secenekler", liste)
+    <br />
+    @("Onaylıyorum") @Html.CheckBox("onay")
+    <br />
+    <input type="submit" value="Gönder"/>
+    <br />
+}
+<h3>2.Form</h3>
+<form method="post">
+    <input type="text" name="ad"/>
+    <br />
+    <select name="secenekler">
+        <option>Seçenek 1</option>
+        <option>Seçenek 2</option>
+    </select>
+    <br />
+    Onaylıyorum: <input type="checkbox" name="onay" value="false"/>
+    <br />
+    <input type="submit" value="Gönder" />
+</form>
+
