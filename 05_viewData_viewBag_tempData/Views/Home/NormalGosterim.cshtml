@@ -1,0 +1,18 @@
+﻿<div class="container mt-5">
+    <h3>Senaryo 1: Yönlendirme Olmadan (View Return)</h3>
+    <hr />
+
+    <div class="alert alert-success">
+        <strong>ViewBag:</strong> @ViewBag.Mesaj
+    </div>
+
+    <div class="alert alert-success">
+        <strong>ViewData:</strong> @ViewData["Mesaj2"]?.ToString()
+    </div>
+
+    <div class="alert alert-success">
+        <strong>TempData:</strong> @TempData["Mesaj"]
+    </div>
+
+    <a asp-action="Index" class="btn btn-secondary mt-3">Geri Dön</a>
+</div>

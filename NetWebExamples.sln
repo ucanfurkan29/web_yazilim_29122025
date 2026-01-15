@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36623.8 d17.14
+VisualStudioVersion = 17.14.36623.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_program_route", "01_program_route\01_program_route.csproj", "{20D68E17-6E8D-4758-BFB6-5E5042C0D7E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_controller_to_view", "02_controller_to_view\02_controller_to_view.csproj", "{12C4D517-197A-4584-AD4C-698F7D988320}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_view_to_controller", "03_view_to_controller\03_view_to_controller.csproj", "{C9E7E027-EEEA-4F99-99B2-CF85DEE5B468}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_proje_not_hesaplama_sistemi", "04_proje_not_hesaplama_sistemi\04_proje_not_hesaplama_sistemi.csproj", "{11094A78-11F0-4E61-9DDD-B1B387E16B5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_viewData_viewBag_tempData", "05_viewData_viewBag_tempData\05_viewData_viewBag_tempData.csproj", "{C6C6060C-1814-4B39-9944-BC8EBA80EC03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{C9E7E027-EEEA-4F99-99B2-CF85DEE5B468}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9E7E027-EEEA-4F99-99B2-CF85DEE5B468}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9E7E027-EEEA-4F99-99B2-CF85DEE5B468}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11094A78-11F0-4E61-9DDD-B1B387E16B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11094A78-11F0-4E61-9DDD-B1B387E16B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11094A78-11F0-4E61-9DDD-B1B387E16B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11094A78-11F0-4E61-9DDD-B1B387E16B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6C6060C-1814-4B39-9944-BC8EBA80EC03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6C6060C-1814-4B39-9944-BC8EBA80EC03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6C6060C-1814-4B39-9944-BC8EBA80EC03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6C6060C-1814-4B39-9944-BC8EBA80EC03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Sınav Not Hesaplama Sistemi";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Sınav Not Hesaplama Sistemi</h2>
+    <hr />
+    <form asp-controller="Sinav" asp-action="Index" method="post">
+        <div class="mb-3">
+            <label>Öğrenci Adı Soyadı:</label>
+            <input type="text" name="adSoyad" class="form-control" required/>
+        </div>
+        <div class="mb-3">
+            <label>Vize Notu(%40):</label>
+            <input type="number" name="vize" class="form-control" min="0" max="100" required/>
+        </div>
+        <div class="mb-3">
+            <label>Final Notu(%60):</label>
+            <input type="number" name="final" class="form-control" min="0" max="100" required/>
+        </div>
+        <button type="submit" class="btn btn-primary">Ortalama Hesapla</button>
+    </form>
+    @if (ViewBag.SonucGoster == true)
+    {
+        <div class="alert alert-secondary">
+            <h4>Sonuç Bilgisi</h4>
+            <p>
+                Sayın <strong>@ViewBag.OgrenciAdi</strong> <br />
+                Not Ortalamanız: <strong>@ViewBag.Ortalama</strong> <br />
+            </p>
+            <h3 style="color: @ViewBag.Renk">
+                Durum: <strong>@ViewBag.Durum</strong>
+            </h3>
+        </div>
+    }
+</div>

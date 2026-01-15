@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Veri Taşıma Testi";
+}
+
+<div class="container mt-5 text-center">
+    <h2>Veri Taşıma Yöntemleri Farkı</h2>
+    <p>Aşağıdaki butonlara basarak yaşam döngülerini test edin.</p>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card p-3 bg-light">
+                <h4>Senaryo 1: Normal View</h4>
+                <p>Veri yüklenir ve direkt View döndürülür.</p>
+                <a asp-action="NormalGosterim" class="btn btn-primary">Test Et (Hepsini Göster)</a>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card p-3 bg-light">
+                <h4>Senaryo 2: Redirect (Yönlendirme)</h4>
+                <p>Veri yüklenir, başka sayfaya yönlendirilir (Redirect).</p>
+                <a asp-action="VeriYukleVeYonlendir" class="btn btn-danger">Test Et (TempData Farkı)</a>
+            </div>
+        </div>
+    </div>
+</div>

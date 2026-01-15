@@ -17,7 +17,9 @@ namespace _03_view_to_controller.Controllers
             var a1 = Request.Form["ad"];
             var o1 = Request.Form["onay"];
 
-            ViewBag.name = k1;
+            ViewBag.name = a1;
+            ViewBag.secenek = k1;
+            ViewBag.onay = o1;
             return View();
         }
 

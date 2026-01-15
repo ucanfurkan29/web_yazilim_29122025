@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Sayaç (F5 Testi)";
+}
+
+<div class="container mt-5 text-center">
+    <h1 class="display-3">@ViewBag.Sayac</h1>
+    <p class="lead">Anlık Sayaç Değeri</p>
+    <hr />
+
+    @if (ViewBag.Mesaj != null)
+    {
+        <div class="alert alert-@ViewBag.Renk">@ViewBag.Mesaj</div>
+    }
+    @if (TempData["Mesaj"] != null)
+    {
+        <div class="alert alert-@TempData["Renk"]">@TempData["Mesaj"]</div>
+    }
+
+    <div class="row mt-4">
+        <div class="col-6">
+            <form asp-action="SayacArtirYanlis" method="post">
+                <button class="btn btn-danger btn-lg w-100">Artır (Yanlış - Return View)</button>
+            </form>
+            <small class="text-danger">Buna bas, sonra F5 yap.</small>
+        </div>
+
+        <div class="col-6">
+            <form asp-action="SayacArtirDogru" method="post">
+                <button class="btn btn-success btn-lg w-100">Artır (Doğru - Redirect)</button>
+            </form>
+            <small class="text-success">Buna bas, sonra F5 yap.</small>
+        </div>
+    </div>
+</div>
