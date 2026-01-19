@@ -1,0 +1,45 @@
+﻿@model _06_html_helper.Models.User
+
+<html>
+    <head>
+        <link href="~/css/site.css" rel="stylesheet" />
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive//jquery.validate.unobtrusive.min.js"></script>
+    </head>
+    <body>
+        <h1>Html Helper Example</h1>
+    @using (Html.BeginForm("Submit", "Home", FormMethod.Post))
+    {
+        <fieldset>
+            <legend>Form Example</legend>
+            <div>
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Age)
+                @Html.TextBoxFor(m => m.Age)
+                @Html.ValidationMessageFor(m => m.Age)
+            </div>
+            <div>
+                @Html.DropDownListFor(m=>m.Country, Model.CountryList,"Select Country")
+                @Html.ValidationMessageFor(m => m.Country)
+            </div>
+            <div>
+                @Html.RadioButtonFor(m => m.Gender, "Male") Male
+                @Html.RadioButtonFor(m => m.Gender, "Female") Female
+                @Html.ValidationMessageFor(m => m.Gender)
+            </div>
+            <div>
+                <input type="submit" value="Send Form" />
+            </div>
+        </fieldset>
+    }
+    @Html.ValidationSummary()
+
+    </body>
+
+
+</html>

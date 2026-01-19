@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_proje_not_hesaplama_sist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_viewData_viewBag_tempData", "05_viewData_viewBag_tempData\05_viewData_viewBag_tempData.csproj", "{C6C6060C-1814-4B39-9944-BC8EBA80EC03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_html_helper", "06_html_helper\06_html_helper.csproj", "{B716D48A-C189-4C7E-9ED5-5766F4EEEB0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C6C6060C-1814-4B39-9944-BC8EBA80EC03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6C6060C-1814-4B39-9944-BC8EBA80EC03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6C6060C-1814-4B39-9944-BC8EBA80EC03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B716D48A-C189-4C7E-9ED5-5766F4EEEB0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B716D48A-C189-4C7E-9ED5-5766F4EEEB0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B716D48A-C189-4C7E-9ED5-5766F4EEEB0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B716D48A-C189-4C7E-9ED5-5766F4EEEB0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
