@@ -40,5 +40,16 @@
 
             return input.ToUpper();
         }
+
+        public static string TersCevir(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return input;
+
+            char[] chars = input.ToCharArray();
+            Array.Reverse(chars);
+            return new string(chars);
+        }
+
     }
 }
