@@ -31,6 +31,14 @@
         
 
 
-        //kaan
+        public static string TumHarfleriBuyukYap(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return input;
+            }
+
+            return input.ToUpper();
+        }
     }
 }
