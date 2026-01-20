@@ -1,0 +1,13 @@
+﻿@model KampusEtkinlik.Models.Etkinlik
+
+<div class="col-md-4 mb-3">
+    <div class="card h-100 shadow-sm">
+        <img src="@Model.ResimUrl" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Baslik</h5>
+            <h6 class="text-muted">@Model.Tarih.ToShortDateString()</h6>
+            <p class="card-text">@Model.Aciklama</p>
+            <a href="#" class="btn btn-primary btn-sm">Detaylar</a>
+        </div>
+    </div>
+</div>
