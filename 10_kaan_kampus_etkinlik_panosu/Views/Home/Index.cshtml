@@ -1,0 +1,20 @@
+﻿@model List<_10_kaan_kampus_etkinlik_panosu.Models.Etkinlik>
+
+<h2 class="fw-bold mb-4">Güncel Etkinlikler</h2>
+
+@if (Model.Count == 0)
+{
+    <div class="alert alert-warning">Henüz etkinlik yok.</div>
+}
+else
+{
+    <div class="row g-4">
+        @foreach (var etkinlik in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-4">
+                @await Html.PartialAsync("_EtkinlikCard", etkinlik)
+            </div>
+        }
+    </div>
+}
+
