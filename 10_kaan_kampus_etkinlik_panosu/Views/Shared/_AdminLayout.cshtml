@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-md-3 mb-3">
+        <div class="list-group shadow-sm">
+            <a class="list-group-item list-group-item-action active"
+               asp-controller="Admin" asp-action="Ekle">Etkinlik Ekle</a>
+
+            <form asp-controller="Admin" asp-action="ListeyiTemizle" method="post" class="m-0">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="list-group-item list-group-item-action text-danger">
+                    Listeyi Düzenle / Temizle
+                </button>
+            </form>
+
+            <a class="list-group-item list-group-item-action" href="#">Ayarlar</a>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        @RenderBody()
+    </div>
+</div>
+
+@section Styles {
+    @RenderSection("Styles", required: false)
+}
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

@@ -1,0 +1,41 @@
+﻿@model _10_kaan_kampus_etkinlik_panosu.Models.Etkinlik
+@using _10_kaan_kampus_etkinlik_panosu.Helpers
+
+@{
+    var hasImage = !string.IsNullOrWhiteSpace(Model.ResimUrl);
+    var placeholderColor = Model.Id % 2 == 0 ? "#0d6efd" : "#f59e0b";
+}
+
+<div class="card h-100 shadow-sm border-0 etkinlik-card">
+    @if (hasImage)
+    {
+        <img src="@Model.ResimUrl" class="card-img-top etkinlik-img" alt="@Model.Ad" />
+    }
+    else
+    {
+        <div class="etkinlik-placeholder" style="background:@placeholderColor;">
+            <span>300 × 200</span>
+        </div>
+    }
+
+    <div class="card-body">
+        <h5 class="card-title fw-semibold mb-1">@Model.Ad</h5>
+
+        <div class="text-muted small mb-2">
+            @Model.Tarih.ToString("dd.MM.yyyy")
+        </div>
+
+        <div class="mb-3">
+            @(Model.Aciklama.Length > 60 ? Model.Aciklama.Substring(0, 60) + "..." : Model.Aciklama)
+        </div>
+
+        <a class="btn btn-primary btn-sm"
+           asp-controller="Home"
+           asp-action="Detay"
+           asp-route-id="@Model.Id">
+            Detaylar
+        </a>
+    </div>
+</div>
+
+

@@ -1,0 +1,55 @@
+﻿@model _10_kaan_kampus_etkinlik_panosu.Models.Etkinlik
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h3 class="mb-3">Yeni Etkinlik Oluştur</h3>
+        <hr />
+
+        @using (Html.BeginForm("Ekle", "Admin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                @Html.LabelFor(x => x.Ad, new { @class = "form-label" })
+                @Html.TextBoxFor(x => x.Ad, new { @class = "form-control", placeholder = "Etkinlik adı..." })
+                @Html.ValidationMessageFor(x => x.Ad, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(x => x.Tarih, new { @class = "form-label" })
+                @Html.TextBoxFor(x => x.Tarih, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", id = "tarih" })
+                @Html.ValidationMessageFor(x => x.Tarih, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(x => x.ResimUrl, new { @class = "form-label" })
+                @Html.TextBoxFor(x => x.ResimUrl, new { @class = "form-control", placeholder = "http://..." })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(x => x.Aciklama, new { @class = "form-label" })
+                @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control", rows = 4 })
+                @Html.ValidationMessageFor(x => x.Aciklama, "", new { @class = "text-danger" })
+            </div>
+
+            <button class="btn btn-success">Kaydet</button>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById("tarih").addEventListener("change", () => alert("Tarih seçildi"));
+    </script>
+}
+
+@section Styles {
+    <style>
+        #tarih {
+            border-width: 2px;
+        }
+    </style>
+}

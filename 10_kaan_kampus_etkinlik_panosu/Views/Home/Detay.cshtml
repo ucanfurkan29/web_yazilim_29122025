@@ -1,0 +1,16 @@
+﻿@model _10_kaan_kampus_etkinlik_panosu.Models.Etkinlik
+
+<h2>@Model.Ad</h2>
+
+@if (!string.IsNullOrWhiteSpace(Model.ResimUrl))
+{
+    <img src="@Model.ResimUrl" class="img-fluid rounded mb-3" />
+}
+
+<p>@Model.Aciklama</p>
+
+<a asp-controller="Home"
+   asp-action="Index"
+   class="btn btn-secondary">
+    Geri Dön
+</a>
