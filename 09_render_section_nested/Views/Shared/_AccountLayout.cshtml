@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="row mt-4">
+    <div class="col-md-3">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">Profil Bilgileri</a>
+            <a href="#" class="list-group-item list-group-item-action">Siparişlerim</a>
+            <a href="#" class="list-group-item list-group-item-action">Şifre Değiştir</a>
+            <a href="#" class="list-group-item list-group-item-action">Çıkış</a>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-body">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await RenderSectionAsync("Scripts", required: false)
+}

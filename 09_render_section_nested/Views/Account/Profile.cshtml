@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+    ViewData["Title"] = "Profilim";
+}
+<h3>Merhaba, Kullanıcı!</h3>
+<p>Burada Kullanıcı Bilgilerinizi Güncelleyebilirsiniz.</p>
+
+<form>
+    <div class="mb-3">
+        <label>Adınız:</label>
+        <input type="text" class="form-control" placeholder="Adınız" />
+    </div>
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+@section Scripts {
+    <script>
+        //Bu script, layouttaki await RenderSectionAsync("Scripts") alanına eklenir.
+        alert("Profil sayfasına özel bir script çalıştı.");
+        console.log("Profil sayfasının script bölümü çalıştı.");
+    </script>
+}

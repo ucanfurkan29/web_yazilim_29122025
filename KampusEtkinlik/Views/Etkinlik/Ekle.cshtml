@@ -1,0 +1,42 @@
+﻿@model KampusEtkinlik.Models.Etkinlik
+
+@{
+    ViewData["Title"] = "Yeni Etkinlik";
+    // KONU 09: Nested Layout Kullanımı
+    Layout = "_AdminLayout";
+}
+
+<h3>Yeni Etkinlik Oluştur</h3>
+<hr />
+
+@using (Html.BeginForm("Ekle", "Etkinlik", FormMethod.Post))
+{
+    <div class="mb-3">
+        <label>Başlık</label>
+        @Html.TextBoxFor(m => m.Baslik, new { @class = "form-control", placeholder = "Etkinlik adı..." })
+    </div>
+
+    <div class="mb-3">
+        <label>Tarih</label>
+        @Html.TextBoxFor(m => m.Tarih, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+    </div>
+
+    <div class="mb-3">
+        <label>Resim URL</label>
+        @Html.TextBoxFor(m => m.ResimUrl, new { @class = "form-control", placeholder = "http://..." })
+    </div>
+
+    <div class="mb-3">
+        <label>Açıklama</label>
+        @Html.TextAreaFor(m => m.Aciklama, new { @class = "form-control", rows = 3 })
+    </div>
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+}
+
+@section Scripts {
+    <script>
+        console.log("Admin paneli: Ekleme sayfası yüklendi.");
+        // İstenirse buraya tarih seçici (datepicker) kodu vs. gelebilir.
+    </script>
+}

@@ -1,0 +1,17 @@
+﻿@model List<KampusEtkinlik.Models.Etkinlik>
+
+@{
+    ViewData["Title"] = "Ana Sayfa";
+    // Bu sayfa standart Layout'u kullanır (Default)
+}
+
+<h2 class="mb-4">@ViewBag.SayfaBasligi</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        // KONU 08: Partial View Kullanımı
+        // Her bir etkinlik için _EtkinlikCard.cshtml dosyasını çağırıyoruz
+        <partial name="_EtkinlikCard" model="item" />
+    }
+</div>
