@@ -1,0 +1,37 @@
+﻿@model _12_fluentvalidation.Models.Ogrenci
+
+<h2>Öğrenci Ekle</h2>
+
+@if (ViewBag.Mesaj != null)
+{
+    <div class="alert alert-success">@ViewBag.Mesaj</div>
+}
+
+<form asp-action="Ekle" method="post">
+
+    <div class="form-group">
+        <label>Ad Soyad:</label>
+        <input asp-for="Ad" class="form-control" />
+        <span asp-validation-for="Ad" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Email:</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Yaş:</label>
+        <input asp-for="Yas" class="form-control" />
+        <span asp-validation-for="Yas" class="text-danger"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

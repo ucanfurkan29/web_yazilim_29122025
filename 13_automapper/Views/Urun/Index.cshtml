@@ -1,0 +1,34 @@
+﻿@using _13_automapper.Dto;
+@model UrunDTO
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ürün Detayı</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                AutoMapper Sonucu (DTO Verisi)
+            </div>
+            <div class="card-body">
+
+                <h5 class="card-title">Ürün Adı: @Model.Ad</h5>
+                <p class="card-text">Fiyat: @Model.Fiyat ₺</p>
+
+                <hr />
+
+                <div class="alert alert-info">
+                    <strong>Dikkat:</strong>
+                    Burada <code>Model.Id</code> veya <code>Model.EklenmeTarihi</code> yazmaya çalışırsanız hata alırsınız.
+                    Çünkü AutoMapper ile sadece DTO içindeki (Ad ve Fiyat) alanları taşıdık.
+                    Veritabanı güvenliği (Data Hiding) sağlanmış oldu.
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
