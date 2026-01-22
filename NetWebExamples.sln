@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12_fluentvalidation", "12_f
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13_automapper", "13_automapper\13_automapper.csproj", "{D5E884BE-ECC6-4A6D-BDC5-A27A50EB50C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14_dependency_injection", "14_dependency_injection\14_dependency_injection.csproj", "{375AF046-D88C-4E07-92C2-D68EF3753343}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{D5E884BE-ECC6-4A6D-BDC5-A27A50EB50C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5E884BE-ECC6-4A6D-BDC5-A27A50EB50C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5E884BE-ECC6-4A6D-BDC5-A27A50EB50C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{375AF046-D88C-4E07-92C2-D68EF3753343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{375AF046-D88C-4E07-92C2-D68EF3753343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{375AF046-D88C-4E07-92C2-D68EF3753343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{375AF046-D88C-4E07-92C2-D68EF3753343}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
