@@ -1,0 +1,219 @@
+﻿@{
+    ViewData["Title"] = "Middleware Örnekleri";
+}
+
+<div class="container mt-4">
+    <div class="text-center mb-5">
+        <h1 class="display-4">🔧 ASP.NET Core Middleware Örnekleri</h1>
+        <p class="lead">Bu projede 5 farklı middleware örneği bulunmaktadır.</p>
+    </div>
+
+    <!-- Middleware Açıklama Kartları -->
+    <div class="row">
+        <!-- 1. Hata Yakalayıcı -->
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">💥 1. Hata Yakalayıcı Middleware</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Uygulamadaki TÜM hataları yakalar ve kullanıcıya güzel bir hata sayfası gösterir.
+                        Development modunda detaylı hata bilgisi, Production'da genel mesaj gösterilir.
+                    </p>
+                    <hr>
+                    <strong>📁 Dosya:</strong> <code>Middlewares/HataYakalayiciMiddleware.cs</code>
+                </div>
+                <div class="card-footer">
+                    <a href="/Home/HataTest" class="btn btn-danger btn-sm">
+                        ⚠️ Hata Testi Yap
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Loglama -->
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 border-info">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">📝 2. Loglama Middleware</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Gelen her HTTP isteğini ve dönen yanıtı loglar.
+                        IP adresi, istek yolu, tarayıcı bilgisi ve süre bilgilerini kaydeder.
+                    </p>
+                    <hr>
+                    <strong>📁 Dosya:</strong> <code>Middlewares/LoglamaMiddleware.cs</code>
+                    <br><br>
+                    <strong>💡 Test:</strong> Visual Studio Output penceresini kontrol et
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Performans -->
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 border-warning">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">⚡ 3. Performans Middleware</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Her isteğin ne kadar sürdüğünü ölçer.
+                        500ms'den uzun süren istekler için uyarı verir.
+                        Response header'a <code>X-Islem-Suresi-Ms</code> ekler.
+                    </p>
+                    <hr>
+                    <strong>📁 Dosya:</strong> <code>Middlewares/PerformansMiddleware.cs</code>
+                </div>
+                <div class="card-footer">
+                    <a href="/Home/YavasIstek" class="btn btn-warning btn-sm me-2">
+                        🐢 Yavaş İstek (2sn)
+                    </a>
+                    <a href="/Home/HizliIstek" class="btn btn-success btn-sm">
+                        🚀 Hızlı İstek
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. İstek Limit -->
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 border-secondary">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">🚦 4. İstek Limit (Rate Limiting) Middleware</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Dakikada maksimum 60 istek izni verir.
+                        Aşırı istek yapan IP'leri 60 saniye engeller (DoS koruması).
+                    </p>
+                    <hr>
+                    <strong>📁 Dosya:</strong> <code>Middlewares/IstekLimitMiddleware.cs</code>
+                    <br><br>
+                    <strong>💡 Test:</strong> Sayfayı 60'tan fazla hızlıca yenile
+                    <br>
+                    <strong>📊 Headers:</strong> <code>X-RateLimit-Remaining</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Yetki Kontrol -->
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">🔐 5. Yetki Kontrol Middleware</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <code>/api/*</code> ve <code>/admin/*</code> yollarını korur.
+                        Erişim için <code>X-Api-Key</code> header'ı gerektirir.
+                    </p>
+                    <hr>
+                    <strong>📁 Dosya:</strong> <code>Middlewares/YetkiKontrolMiddleware.cs</code>
+                    <br><br>
+                    <strong>🔑 API Key:</strong> <code>gizli-api-anahtari-12345</code>
+                </div>
+                <div class="card-footer">
+                    <a href="/api/test" class="btn btn-primary btn-sm">
+                        🔒 API Test (Key olmadan)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Extension Methods -->
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 border-success">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">🧩 Extension Methods</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Middleware'leri temiz bir şekilde eklemek için extension metodlar.
+                    </p>
+                    <hr>
+                    <strong>📁 Dosya:</strong> <code>Middlewares/MiddlewareExtensions.cs</code>
+                    <br><br>
+                    <code>app.UseLogging();</code><br>
+                    <code>app.UsePerformans();</code><br>
+                    <code>app.UseYetkiKontrol();</code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Middleware Pipeline Şeması -->
+    <div class="card mt-4 mb-4">
+        <div class="card-header bg-dark text-white">
+            <h5 class="mb-0">📊 Middleware Pipeline Şeması</h5>
+        </div>
+        <div class="card-body">
+            <pre class="bg-light p-3 rounded" style="font-family: 'Consolas', monospace;">
+İSTEK GELİYOR (HTTP Request)
+    │
+        ▼
+┌───────────────────────────┐
+│ 1. HataYakalayiciMiddleware │  ◄── Tüm hataları yakalar
+└───────────────────────────┘
+        │
+        ▼
+┌───────────────────────────┐
+│ 2. LoglamaMiddleware        │  ◄── İstek bilgilerini loglar
+└───────────────────────────┘
+        │
+        ▼
+┌───────────────────────────┐
+│ 3. PerformansMiddleware     │  ◄── Süre ölçümü başlar
+└───────────────────────────┘
+        │
+      ▼
+┌───────────────────────────┐
+│ 4. IstekLimitMiddleware     │  ◄── Rate limiting kontrolü
+└───────────────────────────┘
+        │
+   ▼
+┌───────────────────────────┐
+│ 5. YetkiKontrolMiddleware   │  ◄── API Key kontrolü
+└───────────────────────────┘
+        │
+ ▼
+┌───────────────────────────┐
+│ ASP.NET Core Middleware'leri│
+│ (Static Files, Routing...)  │
+└───────────────────────────┘
+        │
+        ▼
+┌───────────────────────────┐
+│ CONTROLLER / ACTION    │  ◄── İş mantığı çalışır
+└───────────────────────────┘
+    │
+        ▼
+YANIT GİDİYOR (HTTP Response)
+         </pre>
+        </div>
+    </div>
+
+    <!-- Postman Test Örneği -->
+    <div class="card mb-4">
+        <div class="card-header bg-purple text-white" style="background-color: #6c5ce7;">
+            <h5 class="mb-0">📮 Postman ile API Testi</h5>
+        </div>
+        <div class="card-body">
+            <p>API endpoint'lerini test etmek için Postman kullanabilirsiniz:</p>
+            <pre class="bg-dark text-light p-3 rounded">
+<span style="color: #74b9ff;">GET</span> https://localhost:PORT/api/test
+
+<span style="color: #fdcb6e;">Headers:</span>
+  X-Api-Key: gizli-api-anahtari-12345
+
+<span style="color: #55efc4;">Response:</span>
+{
+  "basarili": true,
+"mesaj": "🎉 Tebrikler! API'ye başarıyla eriştin!",
+  "zaman": "15.01.2025 14:30:00"
+}
+            </pre>
+        </div>
+    </div>
+</div>

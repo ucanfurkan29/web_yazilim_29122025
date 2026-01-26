@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Anasayfa</h1>
+    <p>@ViewBag.UserName</p>
+    <p>@ViewBag.CreatedAt</p>
+    <p>@ViewBag.CookieUserName</p>
+    <p>@ViewBag.CookieCreatedAt</p>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header">
+        <h5>Kontrol Paneli</h5>
+    </div>
+    <div class="card-body">
+        <div class="btn-group" role="group">
+            <a href="@Url.Action("CreateSession")" class="btn btn-primary">Session Oluştur</a>
+            <a href="@Url.Action("CreateCookie")" class="btn btn-success">Cookie Oluştur</a>
+            <a href="@Url.Action("ClearSession")" class="btn btn-danger">Session Sil</a>
+            <button onclick="location.reload()" class="btn btn-warning"> Sayfayı Yenile</button>
+        </div>
+    </div>
+</div>
+
+@if(TempData["Message"] != null)
+{
+    <div class="alert alert-info mt-3">
+        @TempData["Message"]
+    </div>
+}
