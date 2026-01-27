@@ -1,0 +1,59 @@
+﻿@model _18_filter_operation.Models.YorumModel
+@{
+    ViewData["Title"] = "Yorum Yap";
+}
+
+<div class="container mt-5">
+    <h2>Yorum Paneli (Filter Testi)</h2>
+
+    @if (ViewBag.Mesaj != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.Mesaj
+        </div>
+    }
+    @if (ViewBag.PerformansBilgisi != null)
+    {
+        <div class="alert alert-info text-center">
+            @ViewBag.PerformansBilgisi
+        </div>
+    }
+
+    <div class="alert alert-warning">
+        <strong>Test İpucu:</strong> Yorum kısmına "aptal", "salak" veya "berbat" yazıp gönderin.
+    </div>
+
+    <form asp-controller="Yorum" asp-action="Kaydet" method="post">
+        <div class="mb-3">
+            <label>Adınız:</label>
+            <input asp-for="KullaniciAdi" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Yorumunuz:</label>
+            <textarea asp-for="YorumIcerigi" class="form-control" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Gönder</button>
+    </form>
+</div>
+<hr class="my-5" />
+
+<h3>Diğer Senaryoları Test Et</h3>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card p-3">
+            <h5>1. Performans Testi</h5>
+            <p>Sayfayı yenilediğinizde (F5) veya form gönderdiğinizde, Visual Studio'nun <b>Output (Çıktı)</b> penceresine bakın. İşlemin kaç ms sürdüğünü göreceksiniz.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card p-3 border-danger">
+            <h5>2. Hata (Exception) Testi</h5>
+            <p>Aşağıdaki butona basarak "Sıfıra Bölme Hatası" oluşturun. Programın patlamadığını, özel sayfaya gittiğini görün.</p>
+            <a asp-action="HataPatlat" class="btn btn-danger">Hata Oluştur! 💣</a>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
