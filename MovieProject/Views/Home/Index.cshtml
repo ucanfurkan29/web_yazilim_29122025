@@ -1,0 +1,28 @@
+﻿@model List<MovieProject.ViewModels.MovieViewModel>
+@{
+    ViewData["Title"] = "Popüler Filmler";
+}
+<div class="container mt-4">
+    <h2 class="mb-4">Popüler Filmler</h2>
+
+    <div class="row">
+        @foreach (var movie in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="@movie.FullPosterPath" 
+                         class="card-img-top" 
+                         alt="@movie.Title"
+                         style="height: 400px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title" style="font-size: 1rem;">@movie.Title</h5>
+                        <p class="card-text text-muted">
+                            <i class="bi bi-star-fill text-warning"></i> @movie.Vote_Average
+                        </p>
+                        <a href="/Movies/Detail/@movie.Id" class="btn btn-primary btn-sm w-100 mt-auto">Detaylar</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

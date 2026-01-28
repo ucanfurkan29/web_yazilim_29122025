@@ -41,6 +41,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_middleware2", "17_middle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18_filter_operation", "18_filter_operation\18_filter_operation.csproj", "{E70803B2-322A-42C5-8AAF-DC92AD6152E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "19_web_api", "19_web_api\19_web_api.csproj", "{21EF590C-35D6-44A0-807B-3C9023B8771E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieProject", "MovieProject\MovieProject.csproj", "{3841215E-E58D-419B-94CD-48773677A720}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +127,14 @@ Global
 		{E70803B2-322A-42C5-8AAF-DC92AD6152E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E70803B2-322A-42C5-8AAF-DC92AD6152E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E70803B2-322A-42C5-8AAF-DC92AD6152E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21EF590C-35D6-44A0-807B-3C9023B8771E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21EF590C-35D6-44A0-807B-3C9023B8771E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21EF590C-35D6-44A0-807B-3C9023B8771E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21EF590C-35D6-44A0-807B-3C9023B8771E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3841215E-E58D-419B-94CD-48773677A720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3841215E-E58D-419B-94CD-48773677A720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3841215E-E58D-419B-94CD-48773677A720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3841215E-E58D-419B-94CD-48773677A720}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

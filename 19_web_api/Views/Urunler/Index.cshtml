@@ -1,0 +1,46 @@
+﻿@model List<_19_web_api.Models.Urun>
+@{
+    ViewData["Title"] = "Ürünler";
+}
+
+<div class="container mt-4">
+    <div class="text-center mb-5">
+        <h1 class="display-4">API Entegrasyon Örneği</h1>
+        <p class="lead">Bu veriler <b>dummyjson.com</b> adresinden canlı olarak çekilmektedir.</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        
+        @foreach (var urun in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="@urun.Thumbnail" class="card-img-top" alt="@urun.Title" style="height: 200px; object-fit: contain; background-color: #f8f9fa;">
+                    
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="card-title text-truncate" title="@urun.Title">@urun.Title</h5>
+                            <span class="badge bg-success fs-6">$@urun.Price</span>
+                        </div>
+                        
+                        <h6 class="card-subtitle mb-2 text-muted">@urun.Category</h6>
+                        
+                        <p class="card-text small text-secondary">
+                            @(urun.Description.Length > 80 ? urun.Description.Substring(0, 80) + "..." : urun.Description)
+                        </p>
+                    </div>
+                    
+                    <div class="card-footer bg-transparent border-top-0">
+                         <div class="d-flex justify-content-between align-items-center">
+                             <span class="text-warning fw-bold">★ @urun.Rating</span>
+                             <button class="btn btn-primary btn-sm">Detay Gör</button>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
