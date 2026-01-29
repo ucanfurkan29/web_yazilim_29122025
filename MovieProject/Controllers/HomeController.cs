@@ -18,11 +18,17 @@ namespace MovieProject.Controllers
 
         }
 
-
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            var movies =  await _tmbdService.GetPopularMoviesAsync();
-            return View(movies);
+            // Sayfa numarasýný 1-500 arasýnda sýnýrla
+            page = Math.Clamp(page, 1, 500);
+
+            var result = await _tmbdService.GetPopularMoviesAsync(page);
+
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = 500;
+
+            return View(result);
         }
 
         public IActionResult Privacy()

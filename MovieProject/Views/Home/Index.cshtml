@@ -1,9 +1,11 @@
 ﻿@model List<MovieProject.ViewModels.MovieViewModel>
 @{
     ViewData["Title"] = "Popüler Filmler";
+    var currentPage = (int)ViewBag.CurrentPage;
+    var totalPages = (int)ViewBag.TotalPages;
 }
 <div class="container mt-4">
-    <h2 class="mb-4">Popüler Filmler</h2>
+    <h2 class="mb-4">Popüler Filmler <small class="text-muted">(Sayfa @currentPage / @totalPages)</small></h2>
 
     <div class="row">
         @foreach (var movie in Model)
@@ -24,5 +26,66 @@
                 </div>
             </div>
         }
+    </div>
+
+    <!-- Sayfalama -->
+    <nav aria-label="Sayfa navigasyonu" class="mt-4">
+        <ul class="pagination justify-content-center flex-wrap">
+            <!-- İlk Sayfa -->
+            <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                <a class="page-link" href="?page=1">İlk</a>
+            </li>
+            
+            <!-- Önceki -->
+            <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                <a class="page-link" href="?page=@(currentPage - 1)">Önceki</a>
+            </li>
+
+            @{
+                // Gösterilecek sayfa aralığını hesapla
+                int startPage = Math.Max(1, currentPage - 2);
+                int endPage = Math.Min(totalPages, currentPage + 2);
+                
+                // Başlangıçta "..." göster
+                if (startPage > 1)
+                {
+                    <li class="page-item disabled"><span class="page-link">...</span></li>
+                }
+                
+                // Sayfa numaraları
+                for (int i = startPage; i <= endPage; i++)
+                {
+                    <li class="page-item @(i == currentPage ? "active" : "")">
+                        <a class="page-link" href="?page=@i">@i</a>
+                    </li>
+                }
+                
+                // Sonda "..." göster
+                if (endPage < totalPages)
+                {
+                    <li class="page-item disabled"><span class="page-link">...</span></li>
+                }
+            }
+
+            <!-- Sonraki -->
+            <li class="page-item @(currentPage == totalPages ? "disabled" : "")">
+                <a class="page-link" href="?page=@(currentPage + 1)">Sonraki</a>
+            </li>
+            
+            <!-- Son Sayfa -->
+            <li class="page-item @(currentPage == totalPages ? "disabled" : "")">
+                <a class="page-link" href="?page=@totalPages">Son</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Sayfa Seçici -->
+    <div class="d-flex justify-content-center mt-3">
+        <form method="get" class="d-flex align-items-center gap-2">
+            <label for="pageInput" class="form-label mb-0">Sayfaya Git:</label>
+            <input type="number" id="pageInput" name="page" class="form-control" 
+                   style="width: 100px;" min="1" max="@totalPages" value="@currentPage">
+            <button type="submit" class="btn btn-secondary">Git</button>
+        </form>
     </div>
 </div>

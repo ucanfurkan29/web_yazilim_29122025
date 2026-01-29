@@ -3,7 +3,7 @@
     public class Review
     {
         public int Id { get; set; }
-        public string MovieId { get; set; } // TMDB Movie ID
+        public int MovieId { get; set; } // TMDB Movie ID
         public string Content { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 

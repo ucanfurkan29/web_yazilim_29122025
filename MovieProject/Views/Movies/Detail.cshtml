@@ -1,0 +1,127 @@
+﻿@model MovieProject.ViewModels.MovieDetailDTO
+
+@{
+    ViewData["Title"] = Model.MovieDetail.Title;
+    var userRating = Model.CurrentUserLog?.UserRating ?? 0;
+    var isWatched = Model.CurrentUserLog?.IsWatched ?? false;
+}
+
+<div class="card mb-4 shadow border-0" style="background-color: #f8f9fa;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="@Model.MovieDetail.FullPosterPath" class="img-fluid rounded-start w-100" alt="@Model.MovieDetail.Title">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h1 class="card-title">@Model.MovieDetail.Title</h1>
+                <p class="text-muted">
+                    <i class="bi bi-calendar"></i> @Model.MovieDetail.Release_Date |
+                    <i class="bi bi-star-fill text-warning"></i> IMDB: @Model.MovieDetail.Vote_Average
+                </p>
+                <h5 class="mt-4">Özet</h5>
+                <p class="card-text">@Model.MovieDetail.Overview</p>
+
+                <div class="mt-3">
+                    @foreach (var genre in Model.MovieDetail.Genres)
+                    {
+                        <span class="badge bg-secondary me-1">@genre.Name</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Senin Puanın ve Durumun</h5>
+            <form asp-action="UpdateState" method="post" class="row align-items-end">
+                <input type="hidden" name="movieId" value="@Model.MovieDetail.Id" />
+                <input type="hidden" name="movieTitle" value="@Model.MovieDetail.Title" />
+                
+
+                <div class="col-md-3">
+                    <label class="form-label">Puanın (1-10)</label>
+                    <select name="rating" class="form-select">
+                        <option value="0">Puan Ver...</option>
+                        @for (int i = 1; i <= 10; i++)
+                        {
+                            // Daha önce verdiği puan varsa seçili gelsin
+                            if (userRating == i)
+                            {
+                                <option value="@i" selected>@i</option>
+                            }
+                            else
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        }
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="isWatched" value="true" @(isWatched ? "checked" : "") id="watchedCheck">
+                        <label class="form-check-label" for="watchedCheck">
+                            İzledim
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        Puan vermek ve yorum yapmak için lütfen <a href="/Account/Login">giriş yapın</a>.
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h3 class="mb-3">Yorumlar</h3>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form asp-action="AddComment" method="post">
+                        <input type="hidden" name="movieId" value="@Model.MovieDetail.Id" />
+                        <div class="mb-3">
+                            <label class="form-label">Yorumun Nedir?</label>
+                            <textarea name="content" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        }
+
+        @if (Model.Reviews.Any())
+        {
+            foreach (var review in Model.Reviews)
+            {
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="bi bi-person-circle"></i> @review.AppUser?.FullName
+                            <span class="small text-muted">- @review.CreatedAt.ToShortDateString()</span>
+                        </h6>
+                        <p class="card-text">@review.Content</p>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p class="text-muted">Henüz yorum yapılmamış. İlk yorumu sen yap!</p>
+        }
+    </div>
+</div>

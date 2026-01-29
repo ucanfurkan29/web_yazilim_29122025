@@ -20,14 +20,14 @@ namespace MovieProject.Services
         }
 
         //popüler filmleri getir
-        public async Task<List<MovieViewModel>> GetPopularMoviesAsync()
+        public async Task<List<MovieViewModel>> GetPopularMoviesAsync(int page = 1)
         {
             var apiKey = _configuration["TMDB:ApiKey"];
             if(string.IsNullOrEmpty(apiKey)) return new List<MovieViewModel>();
 
             try
             {
-                var response = await _httpClient.GetAsync($"movie/popular?api_key={apiKey}&language=tr-TR");
+                var response = await _httpClient.GetAsync($"movie/popular?api_key={apiKey}&language=tr-TR&page={page}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -49,7 +49,7 @@ namespace MovieProject.Services
 
         public async Task<MovieDetailViewModel> GetMovieDetailAsync(int id)
         {
-            var apiKey = _configuration["TMBD:ApiKey"];
+            var apiKey = _configuration["TMDB:ApiKey"];
             var response = await _httpClient.GetAsync($"movie/{id}?api_key={apiKey}&language=tr-TR");
             if (response.IsSuccessStatusCode)
             {
@@ -63,7 +63,7 @@ namespace MovieProject.Services
         }
         public async Task<List<MovieViewModel>> SearchMovieAsync(string query)
         {
-            var apiKey = _configuration["TMBD:ApiKey"];
+            var apiKey = _configuration["TMDB:ApiKey"];
             var response = await _httpClient.GetAsync($"search/movie?api_key={apiKey}&language=tr-TR&query={query}");
             if (response.IsSuccessStatusCode)
             {
